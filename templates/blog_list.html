@@ -1,0 +1,35 @@
+<!-- extending index.html -->
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="pt-4 px-2 bg-opacity-50">
+    {% for blog in object_list %}
+    {% if user.id == blog.author_id %}
+    <div class="card bg-opacity-50" id="post_list_card">
+        <div class='card-header bg-opacity-50'>
+            <span class="font-weight-bold">
+                <p><a href="{% url 'blog_detail' blog.pk %}">{{ blog.title }}</a></p>
+            </span>
+            <span class="text-muted">
+                <p>-by {{ blog.author }}| {{ blog.date }}</p>
+            </span>
+        </div>
+        <div class="card-body bg-opacity-50">
+            {{ blog.body }}
+            <p><a href="{% url 'blog_edit' blog.pk %}">Edit</a> | <a href="{% url 'blog_delete' blog.pk %}">Delete</a>
+            </p>
+        </div>
+        <div class="card-footer  text-muted">
+            {% for comment in blog.comments.all %}
+            <p>
+                <span class="font-weight-bold">{{ comment.author }} : {{ comment }}</span>
+            </p>
+            {% endfor %}            
+            
+        </div>
+    </div>
+    <br />
+    {% endif%}
+    {% endfor %}
+</div>
+{% endblock content %}

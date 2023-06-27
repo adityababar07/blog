@@ -1,0 +1,50 @@
+{% extends 'index.html'%}
+
+{%block title %}Signup{%endblock title%}
+
+{%block content%}
+<div class="col-md-11 mt-5 ms-5">
+<form method="post" class="row g-3">
+    {% csrf_token %}
+
+    <div class="col-md-6">
+        {{form.as_p}}
+      </div>
+
+    {% comment %} {{ form.non_field_errors }}
+    <div class="col-md-6">
+        {{ form.name.errors }}
+        {{form.name}}
+      </div>
+    <div class="col-md-6">
+        {{ form.username.errors }}
+     {{form.username}}
+    </div>
+    <div class="col-md-6">
+        {{ form.password.errors }}
+      {{form.password}}
+    </div>
+    <div class="col-md-6">
+        {{ form.email.errors }}
+      {{form.email}}
+    </div>
+
+    <div class="col-md-6">
+        {{ form.profil_image.errors }}
+      {{form.profile_image}}
+    </div>
+    <div class="col-md-6">
+        {{ form.age.errors }}
+      {{form.age}}
+    </div>
+    <div class="col-md-12">
+        {{ form.bio.errors }}
+        {{form.bio}}
+      </div>{% endcomment %}
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary ">Sign Up</button>
+    </div> 
+</form>
+</div>
+
+{%endblock content%}

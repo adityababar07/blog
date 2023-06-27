@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+
+{% block title %} {{ user.username }} {% endblock title %}
+
+{% block content %}
+
+<div class="p-3">
+    <img class="profile" src="{{user.profile_image}}" width="250" height="250" >
+    <div class="ps-4">
+        <h4>
+            {{ user.name }}<br>
+            {{ user.username }}
+            <a class="btn btn-secondary" href="{% url 'profile_edit' user.pk %}">Edit Profile</a>
+            <!-- <br />
+            ({{ user.id }})<br /> -->
+        </h4>
+        {{ user.bio }}<br />
+        <hr>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="px-5 bg-white bg-opacity-50">
+    <div class="article-entry bg-opacity-50" id="post_detail_card">
+        <div class='card-header '>
+            <h2>{{ blog.title }}</h2>
+            <p>-by {{ blog.author }}| {{ blog.date }}</p>
+            <!-- <hr> -->
+        </div>
+        <div class="card-body">
+            <p>
+                {{ blog.body }}</p>
+            <p>
+                <a href="{% url 'blog_edit' blog.pk %}">Edit</a> | <a href="{% url 'blog_delete' blog.pk %}">Delete</a>
+            </p>
+            <p>Back to <a href="{% url 'blog_list' %}">All To Do's </a>.</p>
+        </div>
+        <div class="card-footer">
+
+        </div>
+    </div>
+    {% endblock content %}
