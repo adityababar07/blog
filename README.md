@@ -44,7 +44,7 @@ pip install -r requirements.txt
 
 <u><h2>Applying migrations:-</u></h2>
 
-~ python manage.py makemigrations (only if you have made nay recent changes in the database.)<br>
+~ python manage.py makemigrations (only if you have made any recent changes in the database.)<br>
 ~ python manage.py migrate<br>
 
 
