@@ -1,4 +1,4 @@
- {% extends "index.html" %}
+{% extends "index.html" %}
 
 {% block title %} Login {% endblock title%}
 
@@ -6,18 +6,18 @@
 
 <form method="post" class="row gy-2 gx-3 align-items-center m-5">
   {%csrf_token%}
-    <div class="col-auto">
-      <label class="" for="autoSizingInputGroup">Username : </label>
-      {{form.username}}
-    </div>
-    <div class="col-auto">
-      <label class="" for="autoSizingInputGroup">Password : </label>
-     {{form.password}}
-    </div>
-    <div class="col-auto">
-    </div>
-    <div class="col-auto">
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-  </form>
-{% endblock content1 %} 
+  <div class="col-auto">
+    <label class="" for="autoSizingInputGroup">Username : </label>
+    {{form.username}}
+  </div>
+  <div class="col-auto">
+    <label class="" for="autoSizingInputGroup">Password : </label>
+    {{form.password}}
+  </div>
+  <div class="col-auto">
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
+{% endblock content1 %}

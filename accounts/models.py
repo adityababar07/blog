@@ -1,6 +1,7 @@
 import uuid
-from django.db import models
+
 from django.contrib.auth.models import AbstractUser
+from django.db import models
 from django.urls import reverse
 
 # Create your models here.
@@ -18,4 +19,4 @@ class CustomUser(AbstractUser):
         return self.username
 
     def get_absolute_url(self):
-        return reverse('profile', args=[str(self.id)])
+        return reverse("profile", args=[str(self.id)])
