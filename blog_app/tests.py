@@ -1,8 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.test import Client, SimpleTestCase, TestCase
 from django.urls import reverse
-import os
-
+from decouple import config
 from .models import Blog
 
 
@@ -63,8 +62,8 @@ class BlogTests(TestCase):
         self.client.post(
             "/accounts/login/",
             {
-                "username": os.environ.get("username"),
-                "password": os.environ.get("password"),
+                "username": config("username"),
+                "password": config("password"),
             },
         )
 
