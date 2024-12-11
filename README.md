@@ -56,3 +56,7 @@ pip install -r requirements.txt
 <u><h2>Runserver:-</u></h2>
 
 ~ python manage.py runserver
+
+# Random image api
+
+[picsum.photos](https://picsum.photos/)
