@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Install dependencies
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 
 # Run database migrations
-python manage.py makemigrations --noinput
-python manage.py migrate --noinput
+python3 manage.py makemigrations --noinput
+python3 manage.py migrate --noinput
 
 # Collect static files
-python manage.py collectstatic --noinput
+python3 manage.py collectstatic --noinput
