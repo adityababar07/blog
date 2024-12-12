@@ -2,7 +2,7 @@
 
 
 pip3 install pipenv
-pipenv shell
+python3 -m pipenv shell
 # Install dependencies
 pip3 install -r requirements.txt 
 
