@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*", "localhost"]
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh', "localhost"]
 
 
 # Application definition
@@ -135,6 +135,7 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATICFILES_DIRS = [str(BASE_DIR.joinpath("static"))]
+STATIC_ROOT = BASE_DIR/'staticfiles'
 
 MEDIA_URL = "media/"
 MEDIA_ROOT = [str(BASE_DIR.joinpath("media"))]
