@@ -1,10 +1,8 @@
 #!/bin/bash
 
-python3 -m venv env
-
-source env/bin/activate
+python3.9 -m pipenv shell
 # Install dependencies
-python3 -m pip install -r requirements.txt 
+pip install -r requirements.txt 
 
 # Run database migrations
 python3 manage.py makemigrations --noinput
