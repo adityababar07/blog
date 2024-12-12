@@ -1,8 +1,8 @@
 #!/bin/bash
 
-python3.9 -m pip3 install --upgrade pip
-python3.9 -m pip3 install pipenv
-python3.9 -m pipenv shell
+
+pip3 install pipenv
+pipenv shell
 # Install dependencies
 pip3 install -r requirements.txt 
 
