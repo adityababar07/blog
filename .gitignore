@@ -164,3 +164,4 @@ lib64
 bin 
 lib
 include
+secrets.env

@@ -5,6 +5,7 @@ from django.views.generic import ListView, DetailView, TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy, reverse
 from django.shortcuts import get_object_or_404
+from django.utils.timezone import activate, localtime
 
 
 # from .forms import CommentForm
@@ -21,7 +22,7 @@ class BlogListView(LoginRequiredMixin, ListView):
     model = Blog
     template_name = 'blog_list.html'
     login_url = 'login'
-
+    paginate_by = 10  # Enables pagination, displaying 10 blogs per 
 
 class BlogDetailView(LoginRequiredMixin, DetailView):
     model = Blog
