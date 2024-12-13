@@ -94,7 +94,7 @@ WSGI_APPLICATION = "blog.wsgi.application"
 #         default="postgresql://blogdb_wr9p_user:v6fmeRwN8j4WRyNWa2hitcAc9XIBHZLo@dpg-ctdbhupopnds73aj3ai0-a.oregon-postgres.render.com/blogdb_wr9p",
 #         conn_max_age=600,
 #     )
-}
+# }
 
 
 DATABASES = {
