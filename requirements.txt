@@ -7,6 +7,6 @@ gunicorn==19.9.0
 whitenoise==5.2.0
 dj-database-url==0.5.0
 python-dotenv
-dnspython
-pymongo
-djongo
+# dnspython
+# pymongo
+# djongo
