@@ -88,29 +88,30 @@ WSGI_APPLICATION = "blog.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+
 # DATABASES = {
 #     "default": dj_database_url.config(
-#         default=os.getenv("DB_URL"),
+#         default="postgresql://blogdb_wr9p_user:v6fmeRwN8j4WRyNWa2hitcAc9XIBHZLo@dpg-ctdbhupopnds73aj3ai0-a.oregon-postgres.render.com/blogdb_wr9p",
 #         conn_max_age=600,
 #     )
-# }
+}
 
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / "db.sqlite3",
-#     }
-# }
 
 DATABASES = {
-     'default': {
-        'ENGINE': 'djongo',
-        "CLIENT": {
-            'host' : 'mongodb+srv://adityababar715:sR6Fx4IWDKpaR8wz@cluster0.c4yek.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',                              
-        }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / "db.sqlite3",
     }
- }
+}
+
+# DATABASES = {
+#      'default': {
+#         'ENGINE': 'djongo',
+#         "CLIENT": {
+#             'host' : 'mongodb+srv://adityababar715:sR6Fx4IWDKpaR8wz@cluster0.c4yek.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',                              
+#         }
+#     }
+#  }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
