@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 import os
 import dj_database_url
+import pymongo
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -94,12 +95,22 @@ WSGI_APPLICATION = "blog.wsgi.application"
 #     )
 # }
 
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / "db.sqlite3",
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / "db.sqlite3",
+     'default': {
+        'ENGINE': 'djongo',
+        "CLIENT": {
+            'host' : 'mongodb+srv://adityababar715:sR6Fx4IWDKpaR8wz@cluster0.c4yek.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',                              
+        }
     }
-}
+ }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

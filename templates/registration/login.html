@@ -5,7 +5,7 @@
 {% block content1 %}
 
 <form method="post" class="row gy-2 gx-3 align-items-center m-5">
-  {%csrf_token%}
+  {% csrf_token %}
     <div class="col-auto">
       <label class="" for="autoSizingInputGroup">Username : </label>
       {{form.username}}
