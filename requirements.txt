@@ -6,5 +6,4 @@ psycopg2-binary
 gunicorn==19.9.0
 whitenoise==5.2.0
 dj-database-url==0.5.0
-django-db-geventpool
 python-dotenv

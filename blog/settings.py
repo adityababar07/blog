@@ -27,7 +27,8 @@ load_dotenv(BASE_DIR / "secrets.env")
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = eval(os.getenv("DEBUG") )
+# DEBUG = eval(os.getenv("DEBUG")
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1','.vercel.app', '.now.sh', "localhost"]
 
@@ -86,14 +87,19 @@ WSGI_APPLICATION = "blog.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    "default": dj_database_url.config(
-        default=os.getenv("DB_URL"),
-        conn_max_age=600,
-        # default='postgresql://blogdb_wr9p_user:v6fmeRwN8j4WRyNWa2hitcAc9XIBHZLo@dpg-ctdbhupopnds73aj3ai0-a.oregon-postgres.render.com/blogdb_wr9p'
-    )
-}
+# DATABASES = {
+#     "default": dj_database_url.config(
+#         default=os.getenv("DB_URL"),
+#         conn_max_age=600,
+#     )
+# }
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / "db.sqlite3",
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

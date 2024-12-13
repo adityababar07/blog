@@ -165,3 +165,4 @@ bin
 lib
 include
 secrets.env
+.vercel
