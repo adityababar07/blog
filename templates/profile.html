@@ -1,20 +1,23 @@
 {% extends 'index.html' %}
 
-{% block title %} {{ user.username }} {% endblock title %}
+{% block title %} {{ profile.username }} {% endblock title %}
 
 {% block content %}
 
-<div class="p-3">
-    <img class="profile" src="{{user.profile_image}}" width="250" height="250" >
-    <div class="ps-4">
+<div class="p-3 bg-white bg-opacity-75">
+    <img class="profile" src="{{profile.profile_image}}" width="250" height="250" >
+    <div class="ps-4 ">
         <h4>
-            {{ user.name }}<br>
-            {{ user.username }}
-            <a class="btn btn-secondary" href="{% url 'profile_edit' user.pk %}">Edit Profile</a>
+            {{ profile.name }}<br>
+            {{ profile.username }}
+            {% if user.id == profile.id %}
+
+            <a class="btn btn-secondary" href="{% url 'profile_edit' profile.pk %}">Edit Profile</a>
+            {% endif %}
             <!-- <br />
-            ({{ user.id }})<br /> -->
+            ({{ profile.id }})<br /> -->
         </h4>
-        {{ user.bio }}<br />
+        {{ profile.bio }}<br />
         <hr>
     </div>
 </div>

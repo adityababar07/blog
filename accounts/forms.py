@@ -54,5 +54,4 @@ class CustomUserChangeForm(UserChangeForm):
                         'class':'form-control',
                         'placeholder':'Password',
                 }),
-
         }

@@ -31,7 +31,13 @@ SECRET_KEY = "django-insecure-xq08**!)6gpwq1=p-ik#eb(w8cfc5yuz-ko3cg0+ts)jpf)4im
 # DEBUG = eval(os.getenv("DEBUG")
 DEBUG = True
 
-ALLOWED_HOSTS = ["blog750.pythonanywhere.com",'127.0.0.1','.vercel.app', '.now.sh', "localhost"]
+ALLOWED_HOSTS = [
+    "blog750.pythonanywhere.com",
+    "127.0.0.1",
+    ".vercel.app",
+    ".now.sh",
+    "localhost",
+]
 
 
 # Application definition
@@ -43,12 +49,16 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
+    # 3rd Party
+    "crispy_forms",  
+
     "accounts",
     "blog_app",
 ]
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -98,9 +108,9 @@ WSGI_APPLICATION = "blog.wsgi.application"
 
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / "db.sqlite3",
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
 
@@ -108,7 +118,7 @@ DATABASES = {
 #      'default': {
 #         'ENGINE': 'djongo',
 #         "CLIENT": {
-#             'host' : 'mongodb+srv://adityababar715:sR6Fx4IWDKpaR8wz@cluster0.c4yek.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',                              
+#             'host' : 'mongodb+srv://adityababar715:sR6Fx4IWDKpaR8wz@cluster0.c4yek.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
 #         }
 #     }
 #  }
@@ -151,10 +161,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [str(BASE_DIR.joinpath("staticfiles"))]
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = [str(BASE_DIR.joinpath("media"))]
@@ -170,3 +180,5 @@ LOGOUT_REDIRECT_URL = "home"
 
 
 AUTH_USER_MODEL = "accounts.CustomUser"
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

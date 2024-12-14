@@ -1,12 +1,17 @@
 {% extends 'index.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-<div class="px-5 bg-white bg-opacity-50">
+<div class="px-3 py-3 bg-white bg-opacity-75 border border-primary overflow-auto object-fit-contain border rounded">
     <div class="article-entry bg-opacity-50" id="post_detail_card">
         <div class='card-header '>
+            {% load tz %}
+            
+            {% localtime on %}
+            <p>-by <a href="{% url "profile" blog.author.username %}">{{ blog.author }}</a>| {{ blog.date|timezone:"Asia/Kolkata" }}</p>
+            {% endlocaltime %}
             <h2>{{ blog.title }}</h2>
-            <p>-by {{ blog.author }}| {{ blog.date }}</p>
-            <!-- <hr> -->
+             <hr>
         </div>
         <div class="card-body">
             <p>
@@ -16,8 +21,28 @@
             </p>
             <p>Back to <a href="{% url 'blog_list' %}">All Blogs </a>.</p>
         </div>
+        <hr>
         <div class="card-footer">
-
+            <h2 class="py-3">Comments</h2>
+            <div class="overflow-auto rounded bg-dark-subtle px-4 py-4" style="max-height: 50vh;">
+            {% for comment in comments %}
+              <p><strong>{{ comment.author }}:</strong> {{ comment.comment }}</p>
+              <p><small>On {{ comment.comment_date }}</small></p>
+              <hr>
+            {% empty %}
+              <p>No comments yet. Be the first to comment!</p>
+            {% endfor %}
+            </div>
+            <hr>
+            <h1 class="py-3">
+                New Comment
+            </h1>
+        
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+        <button class="btn btn-success my-2" type="submit"> Comment </button>
+            </form>
         </div>
     </div>
     {% endblock content %}

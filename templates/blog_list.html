@@ -4,7 +4,7 @@
 {% block content %}
 <div class="pt-4 px-2 bg-opacity-50">
     {% for blog in object_list %}
-    {% if user.id == blog.author_id %}
+    {% comment %} {% if user.id == blog.author_id %} {% endcomment %}
     <div class="card bg-opacity-50" id="post_list_card">
         <div class='card-header bg-opacity-50'>
             <span class="font-weight-bold">
@@ -14,7 +14,7 @@
                 {% load tz %}
 
                 {% localtime on %}
-                <p>-by {{ blog.author }}| {{ blog.date|timezone:"Asia/Kolkata" }}</p>
+                <p>-by <a href="{% url "profile" blog.author.username %}">{{ blog.author }}</a>| {{ blog.date|timezone:"Asia/Kolkata" }}</p>
                 {% endlocaltime %}
             </span>
         </div>
@@ -24,22 +24,15 @@
             </p>
         </div>
         <div class="card-footer  text-muted">
-            {% with i=0 %}
-            {% for comment in blog.comments.all  %}
-            {% if i < 3 %}
+            {% for comment in blog.comments.all|slice:":3" %}
              <p>
                 <span class="font-weight-bold">{{ comment.author }} : {{ comment }}</span>
                 </p>
-                {% with i=i|add:1 %}
-            {% endwith %}
-            {% endif %}
                 {% endfor %}
-            {% endwith %}
-
         </div>
     </div>
     <br />
-    {% endif%}
+    {% comment %} {% endif%} {% endcomment %}
     {% endfor %}
 </div>
 {% endblock content %}
