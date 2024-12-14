@@ -26,7 +26,7 @@
             <h2 class="py-3">Comments</h2>
             <div class="overflow-auto rounded bg-dark-subtle px-4 py-4" style="max-height: 50vh;">
             {% for comment in comments %}
-              <p><strong>{{ comment.author }}:</strong> {{ comment.comment }}</p>
+              <p><strong><a href="{% url "profile" comment.author.username %}">{{ comment.author }}</a>:</strong> {{ comment.comment }}</p>
               <p><small>On {{ comment.comment_date }}</small></p>
               <hr>
             {% empty %}

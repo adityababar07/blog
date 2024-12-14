@@ -26,7 +26,7 @@
         <div class="card-footer  text-muted">
             {% for comment in blog.comments.all|slice:":3" %}
              <p>
-                <span class="font-weight-bold">{{ comment.author }} : {{ comment }}</span>
+                <span class="font-weight-bold"><a href="{% url "profile" comment.author.username %}">{{ comment.author }}</a> : {{ comment }}</span>
                 </p>
                 {% endfor %}
         </div>
